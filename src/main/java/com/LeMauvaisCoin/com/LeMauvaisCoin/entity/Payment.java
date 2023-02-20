@@ -24,7 +24,7 @@ import lombok.ToString;
 @Inheritance( strategy = InheritanceType.TABLE_PER_CLASS )
 public abstract class Payment {
 	
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	
 	private int amount;

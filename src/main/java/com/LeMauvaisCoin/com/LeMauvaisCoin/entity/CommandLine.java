@@ -24,4 +24,9 @@ public class CommandLine {
 	
 	@ManyToOne @JoinColumn(name="id_command")
 	private Command command;
+	
+	
+	@ManyToOne @JoinColumn(name="id_commandLine")
+	private Article article;
 }
+
