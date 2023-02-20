@@ -16,12 +16,12 @@ public class RoleService {
 	@Autowired
 	RoleRepository repo;
 	
-	public Role getRoleServiceById(int idIn) {
+	public Role getRoleById(int idIn) {
 		return repo.findById(idIn).orElse(null);
 	}
 	
 	
-	public List<Role> getAllRoleService(){
+	public List<Role> getAllRole(){
 		return repo.findAll();
 	}
 	

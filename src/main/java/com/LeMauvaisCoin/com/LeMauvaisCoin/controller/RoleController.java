@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.LeMauvaisCoin.com.LeMauvaisCoin.entity.Role;
-import com.LeMauvaisCoin.com.LeMauvaisCoin.entity.User;
 import com.LeMauvaisCoin.com.LeMauvaisCoin.service.RoleService;
 @RestController
 @RequestMapping("/role")
