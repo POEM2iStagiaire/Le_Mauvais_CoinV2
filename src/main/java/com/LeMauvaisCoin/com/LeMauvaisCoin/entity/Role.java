@@ -2,13 +2,11 @@ package com.LeMauvaisCoin.com.LeMauvaisCoin.entity;
 
 import java.util.List;
 
-import javax.management.relation.Role;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -17,28 +15,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table//(name="users")
+@Table//(name="roles")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
-public class User {
+public class Role {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private String login;
-	private String password;
-	//@Column(name="connection_number")
-	private int connectionNumber;
+	//@Column(name="role_name")
+	private String roleName;
+	
 	
 	
 	@ManyToMany
-	//@Column(name="id_role")
-	private List<Role> roles;
+	//@Column(name="id_user")
+	private List<User> users;
 	
 	
-	@OneToOne(targetEntity=UserInformation.class, mappedBy="user")
-	//@Column(name="id_user_information")
-	private UserInformation userInformation;
-	
-	@OneToMany(targetEntity=Command.class, mappedBy="user")
-	private List<Command> commands;
 }
-
-
