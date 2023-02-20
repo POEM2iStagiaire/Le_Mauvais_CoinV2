@@ -44,19 +44,6 @@ public class User {
 	
 	@OneToMany(targetEntity=Command.class, mappedBy="user")
 	private List<Command> commands;
-
-	public User(String login, String password, int connectionNumber, List<Role> roles, UserInformation userInformation,
-			List<Command> commands) {
-		super();
-		this.login = login;
-		this.password = password;
-		this.connectionNumber = connectionNumber;
-		this.roles = roles;
-		this.userInformation = userInformation;
-		this.commands = commands;
-	}
-	
-	
 }
 
 
