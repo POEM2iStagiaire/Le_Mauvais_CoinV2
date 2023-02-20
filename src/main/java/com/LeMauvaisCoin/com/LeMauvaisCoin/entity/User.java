@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -30,7 +32,9 @@ public class User {
 	
 	
 	@ManyToMany
-	//@Column(name="id_role")
+	@JoinTable( name = "user_role",
+    			joinColumns = @JoinColumn( name = "id_user" ),
+    			inverseJoinColumns = @JoinColumn( name = "id_role" ) )
 	private List<Role> roles;
 	
 	

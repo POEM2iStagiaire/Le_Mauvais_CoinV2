@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -24,10 +26,13 @@ public class Role {
 	private String roleName;
 	
 	
-	
 	@ManyToMany
-	//@Column(name="id_user")
+	@JoinTable( name = "user_role",
+    			joinColumns = @JoinColumn( name = "id_role" ),
+    			inverseJoinColumns = @JoinColumn( name = "id_user" ) )
 	private List<User> users;
 	
 	
 }
+
+

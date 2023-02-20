@@ -25,7 +25,7 @@ public class UserInformation {
 	private int phoneNumber;
 	
 	
-	@OneToOne @JoinColumn(name="idUser")
+	@OneToOne @JoinColumn(name="id_user")
 	//@Column(name="id_user")
 	private User user;
 	
