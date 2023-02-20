@@ -83,10 +83,8 @@
 	        <groupId>org.projectlombok</groupId>
 	        <artifactId>lombok</artifactId>
 	        <scope>provided</scope>
-<<<<<<< HEAD
-	        
-=======
->>>>>>> a82cff676cbe785819c278eeb7f54710b170483b
+			<version>1.18.26</version>
+			
 	    </dependency>
 		
 		
