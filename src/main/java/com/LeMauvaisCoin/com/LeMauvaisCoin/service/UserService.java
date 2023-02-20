@@ -45,7 +45,9 @@ public class UserService {
 			userInDB.setRoles(u.getRoles());
 			userInDB.setUserInformation(u.getUserInformation());
 			userInDB.setCommands(u.getCommands());
+			repo.save(userInDB);
 		}
+		
 	}
 		
 }

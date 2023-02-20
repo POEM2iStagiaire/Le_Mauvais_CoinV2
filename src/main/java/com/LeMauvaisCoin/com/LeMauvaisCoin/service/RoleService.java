@@ -43,6 +43,7 @@ public class RoleService {
 		if(r!=null) {
 			roleInDB.setRoleName(r.getRoleName());
 			roleInDB.setUsers(r.getUsers());
+			repo.save(roleInDB);
 		}
 	}
 		

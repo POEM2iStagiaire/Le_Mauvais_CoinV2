@@ -7,13 +7,14 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 @Entity
 @Inheritance( strategy = InheritanceType.TABLE_PER_CLASS )
 @Table(name="ccpayment")
-@Getter @Setter @AllArgsConstructor @ToString
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
 public class CreditCardPayment extends Payment {
 	
 	private String cardNumber;

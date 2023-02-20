@@ -44,6 +44,7 @@ public class UserInformationService {
 			userInformationInDB.setEmail(ui.getEmail());
 			userInformationInDB.setPhoneNumber(ui.getPhoneNumber());
 			userInformationInDB.setUser(ui.getUser());
+			repo.save(userInformationInDB);
 		}
 	}
 		
