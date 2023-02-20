@@ -34,7 +34,7 @@ public class Command {
 	@ManyToOne @JoinColumn(name="id_user")
 	private User user;
 	
-	@OneToOne(targetEntity=Payment.class, mappedBy="id_payment")
+	@OneToOne @JoinColumn(name="command")
 	//@Column(name="")
 	private Payment payment;
 }
