@@ -19,7 +19,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table
+@Table(name="payment")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
 @Inheritance( strategy = InheritanceType.TABLE_PER_CLASS )
 public abstract class Payment {
@@ -33,6 +33,7 @@ public abstract class Payment {
 	@OneToOne @JoinColumn(name="id_command")
 	//@Column(name="")
 	private Command command;
-	
+
+		
 	
 }

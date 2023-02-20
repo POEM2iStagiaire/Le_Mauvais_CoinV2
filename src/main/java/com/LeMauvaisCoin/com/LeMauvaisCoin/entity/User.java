@@ -44,6 +44,8 @@ public class User {
 	
 	@OneToMany(targetEntity=Command.class, mappedBy="user")
 	private List<Command> commands;
+
+	
 }
 
 
