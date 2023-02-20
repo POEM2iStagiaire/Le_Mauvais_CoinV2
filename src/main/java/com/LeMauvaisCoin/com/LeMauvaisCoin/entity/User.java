@@ -2,7 +2,7 @@ package com.LeMauvaisCoin.com.LeMauvaisCoin.entity;
 
 import java.util.List;
 
-import javax.management.relation.Role;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table//(name="users")
+@Table(name="users")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class User {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
