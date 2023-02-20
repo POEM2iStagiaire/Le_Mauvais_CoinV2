@@ -12,44 +12,44 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.LeMauvaisCoin.com.LeMauvaisCoin.entity.Role;
 import com.LeMauvaisCoin.com.LeMauvaisCoin.entity.User;
-import com.LeMauvaisCoin.com.LeMauvaisCoin.service.UserService;
-
+import com.LeMauvaisCoin.com.LeMauvaisCoin.service.RoleService;
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/role")
+public class RoleController {
 	@Autowired
-	UserService uService;
+	RoleService rService;
 	
 	@GetMapping("/fake")
-	public User fakeUser(){
-		User u = new User();
-		uService.createUser(u);
-		return u;
+	public Role fakeRole(){
+		Role r = new Role();
+		rService.createRole(r);
+		return r;
 	}
 	
 	@GetMapping("/{id}")
-	public User getUserById(@PathVariable("id") int idIn) {
-		return uService.getUserById(idIn);
+	public Role getRoleById(@PathVariable("id") int idIn) {
+		return rService.getRoleById(idIn);
 	}
 	
 	@GetMapping
-	public List<User> getAllUser(){
-		return uService.getAllUser();
+	public List<Role> getAllRole(){
+		return rService.getAllRole();
 	}
 	
 	@PostMapping
-	public void postUser(@RequestBody User u) {
-		uService.createUser(u);
+	public void postRole(@RequestBody Role r) {
+		rService.createRole(r);
 	}
 	
 	@PutMapping("/{id}")
-	public void updateUser(@PathVariable("id") int idIn, @RequestBody User u) {
-		uService.updateUser(idIn, u);
+	public void updateRole(@PathVariable("id") int idIn, @RequestBody Role r) {
+		rService.updateRole(idIn, r);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteUser(@PathVariable("id") int idIn) {
-		uService.deleteUser(idIn);
+	public void deleteRole(@PathVariable("id") int idIn) {
+		rService.deleteRole(idIn);
 	}
 }
