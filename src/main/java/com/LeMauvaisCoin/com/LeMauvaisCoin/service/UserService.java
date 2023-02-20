@@ -43,6 +43,8 @@ public class UserService {
 			userInDB.setPassword(u.getPassword());
 			userInDB.setConnectionNumber(u.getConnectionNumber());
 			userInDB.setRoles(u.getRoles());
+			userInDB.setUserInformation(u.getUserInformation());
+			userInDB.setCommands(u.getCommands());
 		}
 	}
 		
