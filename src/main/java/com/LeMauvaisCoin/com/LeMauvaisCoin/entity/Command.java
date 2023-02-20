@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -32,4 +33,8 @@ public class Command {
 	
 	@ManyToOne @JoinColumn(name="id_user")
 	private User user;
+	
+	@OneToOne(targetEntity=Payment.class, mappedBy="id_payment")
+	//@Column(name="")
+	private Payment payment;
 }
