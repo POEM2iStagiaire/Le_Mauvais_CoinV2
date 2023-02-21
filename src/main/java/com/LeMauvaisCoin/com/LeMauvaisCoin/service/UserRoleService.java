@@ -30,12 +30,12 @@ public class UserRoleService {
 		}
 	}
 	
-	public void createUserUserRole(UserRole ur) {
+	public void createUserRole(UserRole ur) {
 		repo.save(ur);
 	}
 	
 	
-	public void updateUserUserRole(int idIn, UserRole ur) {
+	public void updateUserRole(int idIn, UserRole ur) {
 		UserRole userRoleInDB = repo.findById(idIn).orElse(null);
 		if(ur!=null) {
 			userRoleInDB.setIdUser(ur.getIdUser());

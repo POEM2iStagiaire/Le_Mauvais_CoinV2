@@ -35,12 +35,12 @@ public class UserRoleController {
 	
 	@PostMapping
 	public void postUserRole(@RequestBody UserRole u) {
-		urService.createUserUserRole(u);
+		urService.createUserRole(u);
 	}
 	
 	@PutMapping("/{id}")
 	public void updateUserRole(@PathVariable("id") int idIn, @RequestBody UserRole u) {
-		urService.updateUserUserRole(idIn, u);
+		urService.updateUserRole(idIn, u);
 	}
 	
 	@DeleteMapping("/{id}")

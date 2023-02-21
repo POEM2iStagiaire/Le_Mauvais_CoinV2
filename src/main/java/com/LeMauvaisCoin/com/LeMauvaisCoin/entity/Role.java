@@ -43,11 +43,7 @@ public class Role {
 	}
 
 
-	public Role(List<User> users) {
-		Faker f = new Faker();
-		this.users = users;
-		this.roleName = f.relationships().any();
-	}
+
 	
 	
 }

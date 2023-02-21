@@ -50,8 +50,8 @@ public class User {
 
 	public User(String login, String password, int connectionNumber) {
 		Faker f = new Faker();
-		this.login = f.lorem().word();
-		this.password = f.lorem().word();
+		this.login = f.name().username();
+		this.password = f.internet().password();
 		this.connectionNumber = f.number().numberBetween(1, 20);
 	}
 	
