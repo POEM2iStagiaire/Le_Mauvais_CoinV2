@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.LeMauvaisCoin.com.LeMauvaisCoin.entity.Command;
 import com.LeMauvaisCoin.com.LeMauvaisCoin.entity.User;
+import com.LeMauvaisCoin.com.LeMauvaisCoin.service.CommandService;
 import com.LeMauvaisCoin.com.LeMauvaisCoin.service.RoleService;
 import com.LeMauvaisCoin.com.LeMauvaisCoin.service.UserService;
 
@@ -22,13 +24,21 @@ public class UserController {
 	@Autowired
 	UserService uService;
 	RoleService rService;
+	CommandService cService;
 	
-	@GetMapping("/fake")
-	public User fakeUser(){
+	@GetMapping("/fake/{nbCommand}")
+	public User fakeUser(@PathVariable("nbCommandLine")int nbCommand){
 		User u = new User();
 		uService.createUser(u);
+		for (int i =0 ; i<nbCommand ; i++) {
+			Command c = new Command(i, null, null, u, null);
+			cService.createCommand(c);
+			u.getCommands().add(c);
+		}
+		
 		return u;
 	}
+	
 	
 	
 	@GetMapping("/{id}")
