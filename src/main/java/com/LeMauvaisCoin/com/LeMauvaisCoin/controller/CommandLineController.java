@@ -21,6 +21,13 @@ public class CommandLineController {
 
 	@Autowired
 	CommandLineService clService;
+	
+	@GetMapping("/fake")
+	private CommandLine fakeCommandLine(){
+		CommandLine cl = new CommandLine();
+		clService.createCommandLine(cl);
+		return cl;
+	}
 
 	@GetMapping
 	private List<CommandLine> getAllCommandLine(){

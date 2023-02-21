@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.LeMauvaisCoin.com.LeMauvaisCoin.entity.Command;
+import com.LeMauvaisCoin.com.LeMauvaisCoin.entity.CommandLine;
 import com.LeMauvaisCoin.com.LeMauvaisCoin.service.CommandService;
 
 @RestController
@@ -22,6 +23,16 @@ public class CommandController {
 	@Autowired
 	CommandService cService;
 
+	@GetMapping("/fake/{nbCommandLine}")
+	private Command fakeCommand(@PathVariable("nbCommandLine") int nbCommandLine) {
+		Command c = new Command();
+		for (int i =0; i< nbCommandLine;i++) {
+			c.getCommandLine().add(new CommandLine(c));
+		}
+		cService.createCommand(c);
+		return c;
+	}
+	
 	@GetMapping
 	private List<Command> getAllCommand(){
 		return cService.getAllCommand();

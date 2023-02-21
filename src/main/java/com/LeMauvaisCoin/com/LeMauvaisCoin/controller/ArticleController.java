@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.LeMauvaisCoin.com.LeMauvaisCoin.entity.Article;
+import com.LeMauvaisCoin.com.LeMauvaisCoin.entity.CommandLine;
 import com.LeMauvaisCoin.com.LeMauvaisCoin.service.ArticleService;
+import com.LeMauvaisCoin.com.LeMauvaisCoin.service.CommandLineService;
 
 @RestController
 @RequestMapping("/article")
@@ -21,7 +23,23 @@ public class ArticleController {
 	
 	@Autowired
 	ArticleService aService;
+	@Autowired
+	CommandLineService clService;
 
+	@GetMapping("/fake/{nbCommandLine}")
+	private Article fakeArticle(@PathVariable("nbCommandLine")int nbCommandLine) {
+		Article a = new Article();
+		aService.createArticle(a);
+		for (int i =0 ; i<nbCommandLine ; i++) {
+			CommandLine cl = new CommandLine(a);
+			clService.createCommandLine(cl);
+			a.getCommandLine().add(cl);
+		}
+		aService.updateArticle(a.getId(),a);
+		return a;
+	}
+	
+	
 	@GetMapping
 	private List<Article> getAllArticle(){
 		return aService.getAllArticle();
