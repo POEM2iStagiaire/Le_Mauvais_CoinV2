@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.github.javafaker.Faker;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +22,7 @@ import lombok.ToString;
 
 @Entity
 @Table(name="payment")
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
+@Getter @Setter  @AllArgsConstructor @ToString
 @Inheritance( strategy = InheritanceType.TABLE_PER_CLASS )
 public abstract class Payment {
 	
@@ -28,12 +30,19 @@ public abstract class Payment {
 	private int id;
 	
 	private int amount;
-	private Date paymentDate;
+	private java.util.Date paymentDate;
 
 	@OneToOne @JoinColumn(name="id_command")
 	//@Column(name="")
 	private Command command;
 
-		
 	
+	
+	public Payment() {
+	Faker f = new Faker();
+	
+
+	this.amount  = f.number().numberBetween(1, 50000);
+	this.paymentDate = f.date().birthday();
+	}
 }

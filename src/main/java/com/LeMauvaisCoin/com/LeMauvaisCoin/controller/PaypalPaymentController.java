@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.LeMauvaisCoin.com.LeMauvaisCoin.entity.Payment;
 import com.LeMauvaisCoin.com.LeMauvaisCoin.entity.PaypalPayment;
+import com.LeMauvaisCoin.com.LeMauvaisCoin.service.PaymentService;
 import com.LeMauvaisCoin.com.LeMauvaisCoin.service.PaypalPayementService;
 
 @RestController
@@ -21,6 +23,16 @@ public class PaypalPaymentController {
 
 	@Autowired
 	PaypalPayementService ppService;
+	
+	
+	@GetMapping("/fake")
+	public PaypalPayment fakePaypalPayment() {
+		PaypalPayment a = new PaypalPayment();
+		ppService.createPaypalPayement(a);
+		return a;
+	}
+	
+	
 	
 	@GetMapping("/{id}")
 	public PaypalPayment getById(@PathVariable("id") int id) {

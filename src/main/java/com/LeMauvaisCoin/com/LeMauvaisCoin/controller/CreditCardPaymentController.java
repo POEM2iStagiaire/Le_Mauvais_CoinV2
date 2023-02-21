@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.LeMauvaisCoin.com.LeMauvaisCoin.entity.CreditCardPayment;
+import com.LeMauvaisCoin.com.LeMauvaisCoin.entity.PaypalPayment;
 import com.LeMauvaisCoin.com.LeMauvaisCoin.service.CreditCardPaymentService;
 
 @RestController
@@ -21,6 +22,15 @@ public class CreditCardPaymentController {
 
 	@Autowired
 	CreditCardPaymentService ccpService;
+	
+	
+	
+	@GetMapping("/fake")
+	public CreditCardPayment fakePaypalPayment() {
+		CreditCardPayment a = new CreditCardPayment();
+		ccpService.createCreditCardPayment(a);
+		return a;
+	}
 	
 	@GetMapping("/{id}")
 	public CreditCardPayment getById(@PathVariable("id") int id) {
