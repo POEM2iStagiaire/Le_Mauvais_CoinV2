@@ -1,5 +1,6 @@
 package com.LeMauvaisCoin.com.LeMauvaisCoin.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -40,10 +41,11 @@ public class Role {
 	public Role(String roleName) {
 		Faker f = new Faker();
 		this.roleName = f.relationships().any();
+		users = new ArrayList<>();
 	}
 
 
-
+	
 	
 	
 }

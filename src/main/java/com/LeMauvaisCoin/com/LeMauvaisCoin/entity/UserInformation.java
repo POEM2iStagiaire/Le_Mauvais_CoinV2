@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.github.javafaker.Faker;
 
 import lombok.AllArgsConstructor;
@@ -28,6 +29,7 @@ public class UserInformation {
 	
 	
 	@OneToOne @JoinColumn(name="id_user")
+	@JsonIgnore
 	//@Column(name="id_user")
 	private User user;
 

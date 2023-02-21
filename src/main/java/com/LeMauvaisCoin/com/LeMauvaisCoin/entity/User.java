@@ -1,5 +1,6 @@
 package com.LeMauvaisCoin.com.LeMauvaisCoin.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -14,7 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.github.javafaker.Faker;
 
 import lombok.AllArgsConstructor;
@@ -24,7 +25,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name="users")
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Getter @Setter @AllArgsConstructor
 public class User {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
@@ -40,7 +41,7 @@ public class User {
     			inverseJoinColumns = @JoinColumn( name = "idRole" ) )
 	private List<Role> roles;
 	
-	
+
 	@OneToOne(targetEntity=UserInformation.class, mappedBy="user")
 	//@Column(name="id_user_information")
 	private UserInformation userInformation;
@@ -48,14 +49,12 @@ public class User {
 	@OneToMany(targetEntity=Command.class, mappedBy="user")
 	private List<Command> commands;
 
-	public User(String login, String password, int connectionNumber, List<Role> roles, List<Command> commands) {
+	public User() {
 		Faker f = new Faker();
-		
 		this.login = f.name().username();
 		this.password = f.internet().password();
 		this.connectionNumber = f.number().numberBetween(1, 20);
-		
-		
+		roles = new ArrayList<>();
 	}
 	
 	

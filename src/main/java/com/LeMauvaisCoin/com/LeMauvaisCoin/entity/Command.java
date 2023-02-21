@@ -45,4 +45,11 @@ public class Command {
 		Faker f = new Faker();
 		this.commandDate = f.date().birthday();
 	}
+
+	public Command(User user) {
+		super();
+		this.user = user;
+	}
+	
+	
 }
