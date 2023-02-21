@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.LeMauvaisCoin.com.LeMauvaisCoin.entity.User;
+import com.LeMauvaisCoin.com.LeMauvaisCoin.service.RoleService;
 import com.LeMauvaisCoin.com.LeMauvaisCoin.service.UserService;
 
 @RestController
@@ -20,6 +21,7 @@ import com.LeMauvaisCoin.com.LeMauvaisCoin.service.UserService;
 public class UserController {
 	@Autowired
 	UserService uService;
+	RoleService rService;
 	
 	@GetMapping("/fake")
 	public User fakeUser(){
@@ -27,6 +29,7 @@ public class UserController {
 		uService.createUser(u);
 		return u;
 	}
+	
 	
 	@GetMapping("/{id}")
 	public User getUserById(@PathVariable("id") int idIn) {
