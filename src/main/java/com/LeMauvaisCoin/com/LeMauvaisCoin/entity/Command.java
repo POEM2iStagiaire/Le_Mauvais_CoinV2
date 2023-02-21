@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.github.javafaker.Faker;
 
 import lombok.AllArgsConstructor;
@@ -34,6 +35,7 @@ public class Command {
 	private List <CommandLine> commandLine = new ArrayList<>();
 	
 	@ManyToOne @JoinColumn(name="id_user")
+	@JsonIgnore
 	private User user;
 	
 	@OneToOne @JoinColumn(name="id_payment")
