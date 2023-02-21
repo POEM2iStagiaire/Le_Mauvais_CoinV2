@@ -48,11 +48,14 @@ public class User {
 	@OneToMany(targetEntity=Command.class, mappedBy="user")
 	private List<Command> commands;
 
-	public User(String login, String password, int connectionNumber) {
+	public User(String login, String password, int connectionNumber, List<Role> roles, List<Command> commands) {
 		Faker f = new Faker();
+		
 		this.login = f.name().username();
 		this.password = f.internet().password();
 		this.connectionNumber = f.number().numberBetween(1, 20);
+		
+		
 	}
 	
 	
