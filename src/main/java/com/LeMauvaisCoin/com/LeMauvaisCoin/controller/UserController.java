@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.LeMauvaisCoin.com.LeMauvaisCoin.entity.Command;
 import com.LeMauvaisCoin.com.LeMauvaisCoin.entity.Role;
 import com.LeMauvaisCoin.com.LeMauvaisCoin.entity.User;
 import com.LeMauvaisCoin.com.LeMauvaisCoin.service.CommandService;
@@ -35,10 +36,19 @@ public class UserController {
 		List<Role> AllRoles = rService.getAllRole();
 		Random r = new Random();
 		Role roleA = AllRoles.get(r.nextInt(AllRoles.size()));
+		List<Command> AllCommands = cService.getAllCommand();
+		Random r2 = new Random();
+		Command commandA = AllCommands.get(r.nextInt(AllCommands.size()));
 		u.getRoles().add(roleA);
 		roleA.getUsers().add(u);
+		//commandA.getUser().add(u);
 		uService.updateUser(u.getId(),u);
 		return u;
+	}
+	
+	@GetMapping("/total/{id}")
+	public User getTotalUserById(@PathVariable("id") int idIn) {
+		return uService.getUserById(idIn);
 	}
 	
 	

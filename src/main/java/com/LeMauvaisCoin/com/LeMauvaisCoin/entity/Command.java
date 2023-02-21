@@ -39,6 +39,7 @@ public class Command {
 	private User user;
 	
 	@OneToOne @JoinColumn(name="id_payment")
+	@JsonIgnore
 	private Payment payment;
 	
 	public Command() {
@@ -47,7 +48,6 @@ public class Command {
 	}
 
 	public Command(User user) {
-		super();
 		this.user = user;
 	}
 	
