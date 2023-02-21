@@ -12,6 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.github.javafaker.Faker;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,6 +35,12 @@ public class Role {
     			joinColumns = @JoinColumn( name = "id_role" ),
     			inverseJoinColumns = @JoinColumn( name = "id_user" ) )
 	private List<User> users;
+
+
+	public Role(String roleName) {
+		Faker f = new Faker();
+		this.roleName = f.relationships().any();
+	}
 	
 	
 }

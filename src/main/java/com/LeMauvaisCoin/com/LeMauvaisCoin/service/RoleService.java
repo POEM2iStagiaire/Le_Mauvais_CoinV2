@@ -11,13 +11,13 @@ import com.LeMauvaisCoin.com.LeMauvaisCoin.entity.Role;
 import com.LeMauvaisCoin.com.LeMauvaisCoin.repository.RoleRepository;
 
 
-@Service
+@Service //défini la classe comme un service
 public class RoleService {
 	@Autowired
 	RoleRepository repo;
 	
-	public Role getRoleById(int idIn) {
-		return repo.findById(idIn).orElse(null);
+	public Role getRoleById(int idIn) {				
+		return repo.findById(idIn).orElse(null);	
 	}
 	
 	

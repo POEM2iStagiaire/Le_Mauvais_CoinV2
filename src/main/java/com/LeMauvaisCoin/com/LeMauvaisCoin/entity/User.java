@@ -14,6 +14,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.criterion.BetweenExpression;
+
+import com.github.javafaker.Faker;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -44,6 +48,23 @@ public class User {
 	
 	@OneToMany(targetEntity=Command.class, mappedBy="user")
 	private List<Command> commands;
+
+	public User(String login, String password, int connectionNumber) {
+		Faker f = new Faker();
+		this.login = f.lorem().word();
+		this.password = f.lorem().word();
+		this.connectionNumber = f.number().numberBetween(1, 20);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 
 
